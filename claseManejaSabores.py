@@ -26,6 +26,7 @@ class ManejaSabores:
                     self.agregarSabor(unSabor)
         archivo.close()
 
+    #metodo utilizado para definir las listas de sabores pedidos
     def getLista (self):
         return self.__listaSabores
 
@@ -49,7 +50,7 @@ class ManejaSabores:
             print("-".center(40, '-'))
             sabor.mostrarSabor ()                
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     ms = ManejaSabores()
     ms.testListaSabores()
-    ms.mostrarSabores()
+    ms.mostrarSabores()"""

@@ -42,6 +42,8 @@ class MenuHelados:
         print("Ejecutamos la Opcion 2 - Mostramos el nombre de los 5 sabores mas pedidos\n")
         lista_pe = self.__manejadorH.saboresMasPedidos(self.__manejadorS)
         lista_nros = [0 for i in range(len(lista_pe))]                      #lista que almacena los nros de sabores
+        
+        #aplicamos metodo de ordenamiento por seleccion (en forma descendente)
         for i in range (len(lista_pe) - 1):
             maximo = i
             j = i+1

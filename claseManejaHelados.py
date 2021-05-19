@@ -49,7 +49,8 @@ class ManejaHelados:
         else:
             print("El tipo de Helado ingresado no es valido\n")
 
-    #metodo opcion2
+
+    #metodo opcion2 - contar los pedidos por sabor 
     def saboresMasPedidos (self, manejSabores):
         sabores_pedidos = [0 for i in range (len(manejSabores.getLista()))]
         for helado in self.__listaHelados:
@@ -69,6 +70,7 @@ class ManejaHelados:
         
         return acum
 
+    
     def saboresVendidos (self, tipoh):                      #metodo de opcion4
         print("Los sabores vendidos son: \n")
         for helado in self.__listaHelados:
