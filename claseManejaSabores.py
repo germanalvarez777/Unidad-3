@@ -31,26 +31,36 @@ class ManejaSabores:
         return self.__listaSabores
 
     def buscarNumero (self, nombre):
-        for sabor in self.__listaSabores:
-            if (sabor.getNombre() == nombre):
-                return sabor.getNumeroSabor()
+        band = False
+        i = 0
+        while ((i < len(self.__listaSabores)) and (band == False)):
+            if (self.__listaSabores[i].getNombre() == nombre):
+                band = True
+            i += 1        
+        
+        return self.__listaSabores[i-1].getNumeroSabor()
 
     def buscarDescrip (self, nombre):
-        for sabor in self.__listaSabores:
-            if (sabor.getNombre() == nombre):
-                return sabor.getDescrip()
+        i = 0
+        band = False
+        while ((i < len(self.__listaSabores)) and (band == False)):
+            if (self.__listaSabores[i].getNombre() == nombre):
+                band = True
+            i += 1        
+        
+        return self.__listaSabores[i-1].getDescrip()
 
     def buscarNombreSabor (self, nro):
-        for sabor in self.__listaSabores:
-            if (sabor.getNumeroSabor() == nro):
-                return sabor.getNombre()
+        i = 0
+        band = False
+        while ((i < len(self.__listaSabores)) and (band == False)):
+            if (self.__listaSabores[i].getNumeroSabor() == nro):
+                band = True
+            i += 1        
+        
+        return self.__listaSabores[i-1].getNombre()
 
     def mostrarSabores (self):
         for sabor in self.__listaSabores:
             print("-".center(40, '-'))
             sabor.mostrarSabor ()                
-
-"""if __name__ == '__main__':
-    ms = ManejaSabores()
-    ms.testListaSabores()
-    ms.mostrarSabores()"""
