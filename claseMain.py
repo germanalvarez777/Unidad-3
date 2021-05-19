@@ -1,13 +1,11 @@
 from claseManejaLibros import ManejaLibros
 from claseMenuLibros import MenuLibros
+import os
 def test ():
     ml = ManejaLibros()
     ml.testListaLibros()
     print("Mostramos el listado de libros: \n")
     ml.mostrarListaLibros()
-    prueba = input("Desea probar la composicion del ManejaLibros?(s/n): ")
-    if (prueba == 's'):
-        ml.probarComposicion()
 
 if __name__ == '__main__':
     menu = MenuLibros ()
@@ -21,6 +19,7 @@ if __name__ == '__main__':
         c - Salir
         """)
         opcion = input("Ingrese una opcion: ")
+        os.system('clear')
         if ((opcion != 'a') and (opcion != 'b') and (opcion != 'c')):
             print("Opcion no valida")
             band = False

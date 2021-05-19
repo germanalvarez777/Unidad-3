@@ -40,5 +40,5 @@ class Libro:
                 cap.mostrarCapitulo()
     
     def __del__ (self):
-        print("Se eliminan sus capitulos...")
+        print("Se elimina el Libro {}...".format(self.__titulo))
         del self.__capitulos

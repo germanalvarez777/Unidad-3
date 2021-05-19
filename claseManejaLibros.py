@@ -61,11 +61,3 @@ class ManejaLibros:
                     print("\n----Se encontro coincidencia en capitulo----")
                     print("Titulo Libro: {}\nAutor: {}\nCapitulo: {}\n".format(libro.getTitulo(), libro.getAutor(), cap.getTituloCap()))
         
-    def probarComposicion (self):
-        print("Longitud de la lista de Libros(manejador): {}".format(len(self.__listaLibros)))
-        indice = int(input("Ingrese un indice de la lista de libros a eliminar\n"))
-        if (indice < len(self.__listaLibros)):
-            print("Se borra el libro: {}...\n".format(self.__listaLibros[indice].getTitulo()))
-            del self.__listaLibros[indice]
-        else:
-            print("El indice del ManejaLibros es incorrecto: ")
