@@ -51,6 +51,8 @@ class ManejaLibros:
         print("Cantidad total de paginas es: {}".format(acumulador))
 
     def buscarPalabra (self, palabra):          #recorremos todo el manejador de libros con sus capitulos
+        
+        #utilizamos for, pues puede haber mas de una coincidencia con la palabra ingresada
         for libro in self.__listaLibros:
             if re.search (palabra, libro.getTitulo()):
                 print("-----Se encontro coincidencia en libro-----")

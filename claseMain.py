@@ -14,9 +14,11 @@ if __name__ == '__main__':
     input("Ha finalizado el testeo de datos, presione una tecla para continuar\n")
     while band:
         print("""
+        =======================================================================
         a - Ingresar un identificador de libro y mostrar su informacion. 
         b - Ingresar una palabra y mostrar el titulo o capitulo que coincide.
         c - Salir
+        =======================================================================
         """)
         opcion = input("Ingrese una opcion: ")
         os.system('clear')
