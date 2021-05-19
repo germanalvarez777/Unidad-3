@@ -1,5 +1,6 @@
 from clasePersona import Persona
 from claseInscripcion import Inscripcion
+from datetime import date
 #from ManejaInscripcion import ManejaInscripcion
 class TallerCapacitacion:
     __idTaller = 0
@@ -21,18 +22,18 @@ class TallerCapacitacion:
     def getMontoIns (self):
         return self.__montoInscripcion
 
-    def actualizarVacantes (self, cant):
-        self.__vacantes = self.__vacantes - cant
+    def actualizarVacantes (self):
+        self.__vacantes -= 1
 
     def addInscripciones (self, unaPersona, maneIns, taller):
         if (taller.getIdTaller() == self.__idTaller):
-            fecha = input("Ingrese la fecha de la inscripcion: ")
+            fecha = date.today()                        #fecha de inscripcion es la fecha actual
+            #print("La fecha de inscripcion es: {}".format(fecha))
             unaInsc = Inscripcion (unaPersona, taller,fecha)
 
             maneIns.agregarInscripcion (unaInsc)
-            #if (taller.getIdTaller() == self.__idTaller):
             self.__inscripciones.append(unaInsc)
-            self.actualizarVacantes(1)
+            self.actualizarVacantes()
     
     def mostrarTaller (self):
         print("Id Taller: {}\nNombre: {}\nVacantes: {}\nMonto de Inscripcion: {}".format(self.__idTaller, self.__nombre, self.__vacantes, self.__montoInscripcion))
@@ -45,7 +46,6 @@ class TallerCapacitacion:
     def buscarPersona (self, doc, nombreT, montoT):
         i = 0
         band = False
-        #for insc in self.__inscripciones:
         while ((i < len(self.__inscripciones)) and (band == False)):
             persona = self.__inscripciones[i].getPersonaIns()
             if ((doc == persona.getDni()) and (self.__inscripciones[i].getTallerIns() == nombreT)):
@@ -53,6 +53,7 @@ class TallerCapacitacion:
             i += 1
         if band == True:    
             print("Persona: {}, inscripta en taller: {}\nMonto que adeuda: {}".format(persona.getNombre(),nombreT, montoT))
+        return band
 
     #apartado 4
     def inscriptosTaller (self, idtaller):
@@ -70,7 +71,7 @@ class TallerCapacitacion:
             if (dni == persona.getDni()):
                 self.__inscripciones[i].setPago(True)
                 band = True
-                maneIns.actualizarPago(dni)             
+                maneIns.actualizarPago(dni)                     #es necesario actualizar el pago desde manejador de Inscriptos        
             i+= 1
         return band
         

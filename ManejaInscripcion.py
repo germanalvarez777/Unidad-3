@@ -26,12 +26,10 @@ class ManejaInscripcion:
     def actualizarPago (self, dni):
         band = False
         i = 0
-        #for i in range (self.__cantidad):
         while ((i < (self.__cantidad)) and (band == False)):
             if (self.__inscripciones[i].getDniPersIns() == dni):
                 band = True
                 if (band == True):
-                    #self.__inscripciones[i].__pago = True
                     self.__inscripciones[i].setPago(True)
             i += 1
         
@@ -44,9 +42,14 @@ class ManejaInscripcion:
     def guardarInsCsv (self):
         archivo = open ('newInscripPago.csv', 'w')
         Writer = csv.writer (archivo, delimiter=';')
-        lista = []
+        """lista = []
         for i in range(self.__cantidad):
             self.__inscripciones[i].crearNewArchivo (lista)
         
-        print("Lista es: ", lista)
-        Writer.writerows (lista)
+        print("Lista es: ", lista)"""
+        for i in range(self.__cantidad):
+            Writer.writerow ([self.__inscripciones[i].getPersonaIns().getDni(), str(self.__inscripciones[i].getIdTallerIns()), str(self.__inscripciones[i].getFechaIns()), str(self.__inscripciones[i].getPago())])
+
+        archivo.close()
+        #Writer.writerows (lista)
+        #self.__persona.getDni(), self.__taller.getIdTaller(), self.__fechaInscripcion, self.__pago

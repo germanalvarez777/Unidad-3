@@ -30,8 +30,8 @@ class ManejaPersona:
     def obtenerListaPers (self):
         return self.__listaPersonas
 
-    def getPersona (self, indice):
-        return self.__listaPersonas[indice]
+    """def getPersona (self, indice):
+        return self.__listaPersonas[indice]"""
 
     def mostrarPersonas (self):
         print("Mostramos el listado de personas: \n")
