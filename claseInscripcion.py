@@ -1,12 +1,12 @@
 from clasePersona import Persona
 #from claseTallerCapacitacion import TallerCapacitacion          #para evitar la referencia ciclica
 class Inscripcion:
-    __fechaInscripcion = ''
+    __fechaInscripcion = None
     __pago = False
     __persona = None
     __taller = None
     
-    def __init__ (self,persona, taller, fecha = ''):            #como es el unico parametro que se le asigna un valor, lo colocamos al final
+    def __init__ (self,persona, taller, fecha):            #como es el unico parametro que se le asigna un valor, lo colocamos al final
         self.__fechaInscripcion = fecha
         self.__pago = False
         self.__persona = persona
@@ -36,6 +36,8 @@ class Inscripcion:
         print("Fecha Inscripcion: {} - Pago: {}".format(self.__fechaInscripcion, self.__pago))
         print("Persona: {} - Taller: {}".format(self.__persona.getNombre(), self.__taller.getNombreTaller()))
     
-    def crearNewArchivo (self, Lista):
+
+    
+    """def crearNewArchivo (self, Lista):
         fila = [self.__persona.getDni(), self.__taller.getIdTaller(), self.__fechaInscripcion, self.__pago]
-        Lista.append(fila)
+        Lista.append(fila)"""
