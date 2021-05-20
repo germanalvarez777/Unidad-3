@@ -15,9 +15,6 @@ class MenuHelados:
         self.__manejadorS = ManejaSabores()
         self.__manejadorS.testListaSabores()
         self.__manejadorH = ManejaHelados()
-        self.__manejadorH.testListaHelados(self.__manejadorS)
-        print("Mostramos el listado de Helados: ")
-        self.__manejadorH.mostrarHelados()
 
     def getSwitcher(self):
         return self.__switcher
@@ -31,6 +28,8 @@ class MenuHelados:
 
     def opcion1 (self):
         print("Ejecutamos la Opcion 1 - Registrar una Instancia de Helado\n")
+        
+        #ejecutamos esta opcion cada vez que queramos registrar un helado vendido
         self.__manejadorH.unaInstanciaH (self.__manejadorS)
         print("Mostramos el listado de Helados con nueva instancia: ")
         self.__manejadorH.mostrarHelados()

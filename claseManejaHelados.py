@@ -6,27 +6,7 @@ class ManejaHelados:
         self.__listaHelados = []
     def agregarHelado (self, unHelado):
         self.__listaHelados.append(unHelado)
-    def testListaHelados (self, manejSabores):
-        gramos = int(input("Ingrese el tipo de Helado(100-150-250-500-1000gr):\n"))
-        while ((gramos == 100) or (gramos == 150) or (gramos == 250) or (gramos == 500) or (gramos == 1000)):
-            unHelado = Helado (gramos)
-            self.agregarHelado(unHelado)
-            cantSabores = int(input("Ingrese la cantidad de sabores a agregar: "))
-            print("\n---Mostramos el listado de sabores---")
-            manejSabores.mostrarSabores()
-            for i in range(cantSabores):
-                nombre = input("\nIngrese un sabor de helado: ")
-                nros = manejSabores.buscarNumero (nombre)           #ademas contamos el sabor pedido
-                desc = manejSabores.buscarDescrip (nombre)
-                if nros != None:
-                    Sabor.setNumero(nros)                           #asignamos el nro de sabor al sabor del helado
-                    unSabor = Sabor (nombre, desc)                  #asignamos la descripcion al sabor del helado
-                    unHelado.addSabor(unSabor)
-                else:
-                    print("El sabor ingresado no es correcto\n")
-                
-            gramos = int(input("\nIngrese el tipo de Helado(100-150-250-500-1000gr):\n"))
-    
+
     #Opcion 1 del Menu- Agregamos una instancia de la clase Helado
     def unaInstanciaH (self, manejSabores):
         gramos = int(input("Ingrese el tipo de Helado(100-150-250-500-1000gr):\n"))
@@ -38,11 +18,11 @@ class ManejaHelados:
             manejSabores.mostrarSabores()
             for i in range(cantSabores):
                 nombre = input("\nIngrese un sabor de helado: ")
-                nros = manejSabores.buscarNumero (nombre)           #buscamos el sabor pedido
-                desc = manejSabores.buscarDescrip (nombre)
-                if nros != None:
-                    Sabor.setNumero(nros)                           #asignamos el nro de sabor al sabor del helado
-                    unSabor = Sabor (nombre, desc)                  #asignamos la descripcion al sabor del helado
+                
+                #traigo el objeto completo
+                unSabor = manejSabores.buscarSabor (nombre)           #buscamos el sabor pedido
+                 
+                if unSabor != None:
                     unHelado.addSabor(unSabor)
                 else:
                     print("El sabor ingresado no es correcto\n")
@@ -55,9 +35,10 @@ class ManejaHelados:
         sabores_pedidos = [0 for i in range (len(manejSabores.getLista()))]
         for helado in self.__listaHelados:
             for sabor in helado.getSabores():                               #cada sabor de cada lista de sabores en un helado
-                nrosabor = manejSabores.buscarNumero (sabor.getNombre())
+                #nrosabor = manejSabores.buscarNumero (sabor.getNombre())
+                nrosabor = sabor.getNumeroSabor()
                 if nrosabor != None:
-                    sabores_pedidos[nrosabor-1] += 1
+                    sabores_pedidos[nrosabor-1] += 1                #-1 por ser lista con indice 0
         
         return sabores_pedidos
 

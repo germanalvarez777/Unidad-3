@@ -30,7 +30,7 @@ class ManejaSabores:
     def getLista (self):
         return self.__listaSabores
 
-    def buscarNumero (self, nombre):
+    def buscarSabor (self, nombre):
         band = False
         i = 0
         while ((i < len(self.__listaSabores)) and (band == False)):
@@ -38,17 +38,7 @@ class ManejaSabores:
                 band = True
             i += 1        
         
-        return self.__listaSabores[i-1].getNumeroSabor()
-
-    def buscarDescrip (self, nombre):
-        i = 0
-        band = False
-        while ((i < len(self.__listaSabores)) and (band == False)):
-            if (self.__listaSabores[i].getNombre() == nombre):
-                band = True
-            i += 1        
-        
-        return self.__listaSabores[i-1].getDescrip()
+        return self.__listaSabores[i-1]
 
     def buscarNombreSabor (self, nro):
         i = 0
