@@ -1,4 +1,6 @@
 from claseVehiculo import Vehiculo
+from claseVehiculoNuevo import VehiculoNuevo
+from claseVehiculoUsado import VehiculoUsado
 import json
 class Nodo:
     __vehiculo = None
@@ -18,12 +20,11 @@ class Nodo:
     def getDato (self):
         return self.__vehiculo
     
-    """def toJSON (self):
-        d = dict(
-            __class__= self.__class__.__name__,
-            __atributos__= dict (
-                vehiculo = dict(self.__vehiculo.toJSON()),
-                siguiente = self.__siguiente
-            )
-        )
-        return d"""
+    def getTipo (self):
+        tipo = None
+        if isinstance (self.__vehiculo, VehiculoNuevo):
+            tipo = 'Vehiculo Nuevo'
+        elif isinstance (self.__vehiculo, VehiculoUsado):
+            tipo = 'Vehiculo Usado'
+
+        return tipo

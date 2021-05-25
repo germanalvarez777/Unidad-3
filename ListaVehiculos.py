@@ -126,7 +126,7 @@ class ListaVehiculos:
                     aux = aux.getSiguiente()
                     cont += 1
             if (band == True):
-                print("El elemento encontrado es: {}\n".format(aux.getDato().obtenerVehiculo()))
+                print("El elemento encontrado es del tipo: {}\n".format(aux.getTipo()))
             else:
                 print("Se ha producido un eror\n")
         else:
