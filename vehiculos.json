@@ -1,0 +1,94 @@
+{
+    "__class__": "ListaVehiculos",
+    "comienzo": [
+        {
+            "__class__": "VehiculoUsado",
+            "__atributos__": {
+                "modelo": "A9",
+                "cantPuertas": 2,
+                "color": "Amarillo",
+                "precioBaseV": 700000.0,
+                "marca": "Audi",
+                "patente": "AYD-912",
+                "anio": 2019,
+                "kilometraje": 7132.1
+            }
+        },
+        {
+            "__class__": "VehiculoNuevo",
+            "__atributos__": {
+                "modelo": "Hilux v2",
+                "cantPuertas": 4,
+                "color": "Gris",
+                "precioBaseV": 736382.3,
+                "version": "base"
+            }
+        },
+        {
+            "__class__": "VehiculoUsado",
+            "__atributos__": {
+                "modelo": "Torino",
+                "cantPuertas": 4,
+                "color": "Dorado",
+                "precioBaseV": 293039.4,
+                "marca": "Ferrari",
+                "patente": "CVS-819",
+                "anio": 1990,
+                "kilometraje": 27932.3
+            }
+        },
+        {
+            "__class__": "VehiculoUsado",
+            "__atributos__": {
+                "modelo": "Suran",
+                "cantPuertas": 4,
+                "color": "Rojo",
+                "precioBaseV": 695429.3,
+                "marca": "VW",
+                "patente": "ODI-932",
+                "anio": 2019,
+                "kilometraje": 3932.3
+            }
+        },
+        {
+            "__class__": "VehiculoNuevo",
+            "__atributos__": {
+                "modelo": "Fiesta",
+                "cantPuertas": 2,
+                "color": "Negro",
+                "precioBaseV": 485823.5,
+                "version": "full"
+            }
+        },
+        {
+            "__class__": "VehiculoNuevo",
+            "__atributos__": {
+                "modelo": "Gol",
+                "cantPuertas": 2,
+                "color": "Blanco",
+                "precioBaseV": 285832.3,
+                "version": "full"
+            }
+        },
+        {
+            "__class__": "VehiculoNuevo",
+            "__atributos__": {
+                "modelo": "Voyaje",
+                "cantPuertas": 4,
+                "color": "Verde Manzana",
+                "precioBaseV": 485882.9,
+                "version": "full"
+            }
+        },
+        {
+            "__class__": "VehiculoNuevo",
+            "__atributos__": {
+                "modelo": "Cit C5",
+                "cantPuertas": 4,
+                "color": "Rosado",
+                "precioBaseV": 937342.2,
+                "version": "peugeot"
+            }
+        }
+    ]
+}
