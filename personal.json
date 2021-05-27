@@ -1,0 +1,95 @@
+{
+    "__class__": "ListaPersonalUniv",
+    "personal": [
+        {
+            "__class__": "Docente",
+            "__atributos__": {
+                "nombre": "Martin",
+                "apellido": "Dias",
+                "cuil": "23-28412973-2",
+                "sueldoBasico": 23415.3,
+                "antig": 3,
+                "carrera": "LSI",
+                "cargo": "simple",
+                "catedra": "Matematica Discreta",
+                "areaInv": "",
+                "tipoInv": ""
+            }
+        },
+        {
+            "__class__": "DocInvestig",
+            "__atributos__": {
+                "nombre": "Javier",
+                "apellido": "Rodriguez",
+                "cuil": "20-19472384-6",
+                "sueldoBasico": 50192.3,
+                "antig": 11,
+                "areaInv": "Programacion a bajo Nivel",
+                "tipoInv": "Acceso a Herramientas del BIOS",
+                "carrera": "LCC",
+                "cargo": "exclusivo",
+                "catedra": "Estructuras II",
+                "categInvestigacion": "III",
+                "importeExtra": 2912.5
+            }
+        },
+        {
+            "__class__": "Docente",
+            "__atributos__": {
+                "nombre": "Roberto",
+                "apellido": "Sanchez",
+                "cuil": "23-20194573-7",
+                "sueldoBasico": 38345.3,
+                "antig": 3,
+                "carrera": "LSI",
+                "cargo": "simple",
+                "catedra": "Procedural",
+                "areaInv": "",
+                "tipoInv": ""
+            }
+        },
+        {
+            "__class__": "Investigador",
+            "__atributos__": {
+                "nombre": "Rodrigo",
+                "apellido": "Perez",
+                "cuil": "13-3276232-1",
+                "sueldoBasico": 32319.3,
+                "antig": 2,
+                "areaInv": "Data Science",
+                "tipoInv": "DS",
+                "carrera": "",
+                "cargo": "",
+                "catedra": ""
+            }
+        },
+        {
+            "__class__": "PersonalApoyo",
+            "__atributos__": {
+                "nombre": "Graciela",
+                "apellido": "Pereyra",
+                "cuil": "21-28472012-5",
+                "sueldoBasico": 40129.9,
+                "antig": 2,
+                "categoria": 11
+            }
+        },
+        {
+            "__class__": "DocInvestig",
+            "__atributos__": {
+                "nombre": "Luciana",
+                "apellido": "Morales",
+                "cuil": "21-23849501-4",
+                "sueldoBasico": 57210.4,
+                "antig": 6,
+                "areaInv": "Cientifico Matematico",
+                "tipoInv": "Matematica Aplicada",
+                "carrera": "LCC",
+                "cargo": "semiexclusivo",
+                "catedra": "Algebra",
+                "categInvestigacion": "III",
+                "importeExtra": 1029.8
+            }
+        }
+    ]
+}
