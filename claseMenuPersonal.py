@@ -76,27 +76,42 @@ class MenuPersonal:
 
     def opcion1 (self, lista):
         print("Ejecutamos la Opcion 1\nInsertar agente en una posicion de la coleccion\n")
-        #unAgente = self.cargarAgente ()
-        op = int(input("Ingrese 1 o 2: "))
-        unAgente = None
-        if op == 1:
-            unAgente = Docente ('Roberto', 'Sanchez', '23-20194573-7', 38345.3, 3, 'LSI', 'simple', 'Procedural')
-        elif op == 2:
-            unAgente = Investigador ('Antonio', 'Cassano', '18-38329232-8', 30001.3, 5, 'Tecno', 'OS')
-
-        posicion = int(input("Ingrese la posicion a insertar: "))
-        lista.insertarElemento (posicion, unAgente)
+        carg = input("S: Cargar agente/N:Seleccionar uno creado?(s/n): ")
+        if (carg.lower() == 's'):
+            unAgente = self.cargarAgente ()
+            posicion = int(input("Ingrese la posicion a insertar: "))
+            lista.insertarElemento (posicion, unAgente)
+        elif (carg.lower() == 'n'):
+            op = int(input("Ingrese 1 o 2: "))
+            unAgente = None
+            if op == 1:
+                unAgente = Docente ('Roberto', 'Sanchez', '23-20194573-7', 38345.3, 3, 'LSI', 'simple', 'Procedural')
+            elif op == 2:
+                #unAgente = Investigador ('Antonio', 'Cassano', '18-38329232-8', 30001.3, 5, 'Tecno', 'OS')
+                unAgente = Investigador('Rodrigo', 'Perez', '25-3756232-3', 30001.3, 5, 'Tecno', 'OS')
+            posicion = int(input("Ingrese la posicion a insertar: "))
+            lista.insertarElemento (posicion, unAgente)
+        else:
+            print("Eleccion realizada no es correcta!")
 
     def opcion2 (self, lista):
         print("Ejecutamos la Opcion 2\nAgregar un agente al final de la coleccion\n")
-        op = int(input("Ingrese 1 o 2: "))
-        unAgente = None
-        if op == 1:
-            unAgente = DocInvestig ('Fernando', 'Gimenez', '22-40923934-6', 57210.4, 6, 'Cientifica', 'IA', 'LCC', 'semiexclusivo', 'POO', 'II', 2334.2)
-        elif op == 2:
-            unAgente = PersonalApoyo ('Norelia', 'Correa', '24-31829342-7', 33384.9, 4, 15)
+        carg = input("S: Cargar agente/N:Seleccionar uno creado?(s/n): ")
+        if (carg.lower() == 's'):
+            unAgente = self.cargarAgente ()
+            lista.agregarElemento (unAgente)
+        elif (carg.lower() == 'n'):
+            op = int(input("Ingrese 1 o 2: "))
+            unAgente = None
+            if op == 1:
+                unAgente = DocInvestig ('Javier', 'Rodriguez', '20-19472384-6', 57210.4, 6, 'Cientifica', 'IA', 'LCC', 'semiexclusivo', 'POO', 'II', 2334.2)
+                #unAgente = DocInvestig ('Fernando', 'Gimenez', '22-40923934-6', 57210.4, 6, 'Cientifica', 'IA', 'LCC', 'semiexclusivo', 'POO', 'II', 2334.2)
+            elif op == 2:
+                unAgente = PersonalApoyo ('Norelia', 'Correa', '24-31829342-7', 33384.9, 4, 15)
+            lista.agregarElemento (unAgente)
+        else:
+            print("Eleccion realizada no es correcta!")
 
-        lista.agregarElemento (unAgente)
 
     def opcion3 (self, lista):
         print("Ejecutamos la Opcion 3\n")
@@ -117,7 +132,7 @@ class MenuPersonal:
 
     def opcion6 (self, lista):
         print("Ejecutamos la Opcion 6\Mostrar listado ordenado de todos los agentes\n")
-        lista.generarListado ()
+        lista.ordenarLista ()
 
     def opcion7 (self, lista):
         print("Ejecutamos la Opcion 7\nMostrar listado de Doc-Inv e importe total extra\n")

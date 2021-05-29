@@ -23,6 +23,9 @@ class DocInvestig (Docente, Investigador):
         print("----Datos del Docente/Investigador----\n") 
         print("Categoria de Investigacion: {}\nImporte Extra: {:.2f}\nSueldo: {:.2f}".format(self.__categInvestigacion, self.__importeExtra, self.calcularSueldo()))
 
+    def getTipoP (self):                        #metodo para opcion6
+        return 'Docente - Investigador'
+
     def toJSON (self):
         d = dict (
             __class__ = self.__class__.__name__,

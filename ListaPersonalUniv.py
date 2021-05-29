@@ -37,6 +37,13 @@ class ListaPersonalUniv:
                 self.__actual = self.__actual.getSiguiente()
                 return dato
     
+    def getTope (self):
+        return self.__tope
+    
+    def getComienzo (self):
+        return self.__comienzo
+    
+
     def agregarElemento (self, unPersonal):                        #agregamos nuevo elemento al final de la lista 
         aux = self.__comienzo
         ant = aux
@@ -116,14 +123,14 @@ class ListaPersonalUniv:
              
         if ((pos < self.__tope) and (pos != None)):                 
             while ((aux != None) and (band == False)):
-                print("Cont: {}, pos: {}, band: {}, y Persona: {}".format(cont, pos, band, aux.getDato().getNomApell()))
+                #print("Cont: {}, pos: {}, band: {}, y Persona: {}".format(cont, pos, band, aux.getDato().getNomApell()))
                 if cont == pos:
                     band = True
                 else:
                     aux = aux.getSiguiente()
                     cont += 1
             if (band == True):
-                print("El elemento encontrado es: {}\n".format(aux.getTipo()))
+                print("El elemento encontrado es de tipo: {}\n".format(aux.getTipo()))
             else:
                 print("Se ha producido un eror\n")
         else:
@@ -149,98 +156,50 @@ class ListaPersonalUniv:
             i += 1
             aux = aux.getSiguiente()
 
+    def validarRepetido (self, unPersonal):
+        aux = self.__comienzo
+        cont = 0
+        while aux != None:
+            if ((unPersonal.getApellido() == aux.getDato().getApellido()) and (unPersonal.getNombre() == aux.getDato().getNombre())):
+                if (unPersonal.getCuil() == aux.getDato().getCuil()):
+                    cont += 1
+            aux = aux.getSiguiente()
+        
+        if cont > 1:
+            band = True
+        else:
+            band = False
+        
+        return band
+
     def generarListadoDI (self, carrera):
-        """aux = self.__comienzo
-        i = 0
-        lista = []
-        while ((aux != None) and (i < self.__tope)):
-            if isinstance (aux.getDato(), DocInvestig):
-                if (aux.getDato().getCarreraDoc() == carrera):
-                    lista.append(aux.getDato())                     #contiene los objetos Docente-Investigador
-            i += 1
-            aux = aux.getSiguiente ()
-        
-        lista.sort()
-        for doc_inv in lista:                       #ordenamos de forma ascendente por nombre
-            doc_inv.mostrarDatos()"""
-        
-        #otra forma de ordenarlo
         nodo = self.__comienzo
         p = None
-        k = None
-        cota = None
+        while nodo != None:
+            p = nodo.getSiguiente()
+            while (p != None):
 
-        #solo es para mostrar el listado de nombres
-        com = self.__comienzo                   
-        i = 0
-        while ((com != None) and (i < self.__tope)):            #para verificar el recorrido
-            print("La componente es: ", com.getDato().getNombre())
-            com = com.getSiguiente()
-            i += 1
+                if (nodo.getDato().getNombre() > p.getDato().getNombre()):
+                    aux = nodo.getDato
+                    nodo.getDato = p.getDato
+                    p.getDato = aux
 
-        #empieza el ordenamiento por burbuja
-        while ((k != nodo)):  
-            k = nodo
-            p = nodo
-            x = p.getSiguiente()
-            anterior = p                        #para contener el comienzo de la lista
+                p = p.getSiguiente()
             
-            while x != cota: 
-                s = p.getSiguiente()
-                
-                #para evaluar si llego a none
-                if (p == None or s == None):
-                    x = None
-                    """com = self.__comienzo                   
-                    i = 0
-                    while ((com != None) and (i < self.__tope)):                #muestro el recorrido de la primera pasada while
-                        print("La componente es: ", com.getDato().getNombre())
-                        com = com.getSiguiente()
-                        i += 1"""
-                else:
-                    if (p.getDato().getNombre() > s.getDato().getNombre()):
-                        aux= s             #resguarda el menor
-                        aux1 = s.getSiguiente()
-
-                        s = p               #apunta al mayor
-                        p = aux           #apunta al menor
-                                
-                        p.setSiguiente(aux)
-                        s.setSiguiente(aux1)       
-
-                        anterior.setSiguiente(p)
-                        print("Se realizo el intercambio")
-                        #print("1)Ant: ", anterior.getDato().getNombre(), 'P: ', p.getDato().getNombre(), 'S: ', s.getDato().getNombre())
-                        anterior = anterior.getSiguiente()
-                                
-                        p = p.getSiguiente()
-                        s = s.getSiguiente()
-
-                        k = p                       #guarda el cambio
-
-                    else:
-                        print("No se realizo el intercambio\n")
-                        #print("2)Ant: ", anterior.getDato().getNombre(), 'P: ', p.getDato().getNombre(), 'S: ', s.getDato().getNombre())
-                        #anterior = p
-                        p = p.getSiguiente()
-                    #print("3)Antsig: ", anterior.getDato().getNombre(), 'Psig: ', p.getDato().getNombre(), 'Ssig: ', s.getDato().getNombre())
-                    #input("Pausa")
-                    if p == None:
-                        x = None
-                    else:
-                        x = p
-            cota = k.getSiguiente()
+            nodo = nodo.getSiguiente()
         
-
-        print("Mostramos la lista en forma ordenada por Nombre\n")
-        aux = self.__comienzo
-        i = 0
-        while ((aux != None) and (i < self.__tope)):
-            if isinstance (aux.getDato(), DocInvestig):
-                if (aux.getDato().getCarreraDoc() == carrera):
-                    aux.getDato().mostrarDatos()
-            i += 1
-            aux = aux.getSiguiente()
+        print("Mostramos la lista ordenada por Nombre\n")
+        unic = False                #para mostrar una unica vez el personal repetido
+        for dato in self: 
+            if isinstance (dato, DocInvestig):
+                if (dato.getCarreraDoc() == carrera):
+                    cond = self.validarRepetido(dato)
+                    if cond == False:
+                        dato.mostrarDatos()
+                    else:
+                        if unic == False:
+                            dato.mostrarDatos()
+                            unic = True             #como ya se mostro el personal repetido, cambiamos el valor para no volver a mostrarlo
 
 
     #metodos de opcion 5
@@ -274,71 +233,35 @@ class ListaPersonalUniv:
         
         print("Cantidad de Docentes-Inv: {}\nCantidad de Investigadores: {}".format(contarDI, contarI))
 
-    #metodos para opcion 6
-    def ordenarLista (self):                #ordenamos toda la lista, por metodo de burbuja
+    #metodo para opcion 6
+    
+    def ordenarLista (self):
         nodo = self.__comienzo
         p = None
-        k = None
-        cota = None
+        while nodo != None:                         #metodo de ordenamiento por burbuja
+            p = nodo.getSiguiente()
+            while (p != None):
 
-        while ((k != nodo)):  
-            k = nodo
-            p = nodo
+                if (nodo.getDato().getApellido() > p.getDato().getApellido()):
+                    aux = nodo.getDato
+                    nodo.getDato = p.getDato                #no se colocan los parentesis
+                    p.getDato = aux
+
+                p = p.getSiguiente()
             
-            x = p.getSiguiente()
-            anterior = p
-            while x != cota: 
-                s = p.getSiguiente()
-                if (p == None or s == None):
-                    x = None
-                    com = self.__comienzo
-                    i = 0
-                    while ((com != None) and (i < self.__tope)):            #para mostrar la comparacion
-                        #print("Comp: ", com.getDato().getApellido())
-                        com = com.getSiguiente()
-                        i += 1
-                else:
-                    if (p.getDato().getApellido() > s.getDato().getApellido()):
-                        aux = s             #resguarda el menor
-                                   
-                        s = p               #apunta al mayor
-                        p = aux           #apunta al menor
-                        
-                        s.setSiguiente(p.getSiguiente())
-                        p.setSiguiente(s)
-                        
-                        anterior.setSiguiente(p)
-                        #print("Ant: ", anterior.getDato().getApellido(), 'P: ', p.getDato().getApellido(), 'S: ', s.getDato().getApellido())
-                        anterior = anterior.getSiguiente()
-                        
-                        p = p.getSiguiente()
-                        s = s.getSiguiente()
-                        #print("AntSig: ", anterior.getDato().getApellido(), 'PSig: ', p.getDato().getApellido(), 'Ssig: ', s.getDato().getApellido())
-                        k = p                       #guarda el cambio
-
-                        #print("Se realizo el intercambio")
-                    else:
-                        #print("No se realizo el intercambio\n")
-                        anterior = p
-                        p = p.getSiguiente()
-
-                    if p == None:
-                        x = None
-                    else:
-                        x = p
-            cota = k.getSiguiente()
-            
-
-    def generarListado (self):
-
-        self.ordenarLista()             #lista ordenada por apellido, ahora se recorre
-        aux = self.__comienzo
-        i = 0
+            nodo = nodo.getSiguiente()
+        
+        print("Mostramos la lista ordenada\n")
         print("Nombre y Apellido    Tipo de Agente      Sueldo\n")
-        while ((aux != None) and (i < self.__tope)):
-            print("{:8}      {:8}     {:.2f}\n".format(aux.getDato().getNomApell(), aux.getTipo(), aux.getDato().calcularSueldo()))
-            i += 1
-            aux = aux.getSiguiente()
+        unic = False                #para mostrar una unica vez el personal repetido
+        for dato in self:   
+            cond = self.validarRepetido(dato)
+            if cond == False:
+                print("{:8}      {:8}     {:.2f}\n".format(dato.getNomApell(), dato.getTipoP(), dato.calcularSueldo()))
+            else:
+                if unic == False:
+                    print("{:8}      {:8}     {:.2f}\n".format(dato.getNomApell(), dato.getTipoP(), dato.calcularSueldo()))
+                    unic = True             #como ya se mostro el personal repetido, cambiamos el valor para no volver a mostrarlo
 
 
     #metodos para opcion 7

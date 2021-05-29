@@ -13,7 +13,7 @@ class Investigador (Personal):
         return self.__tipoInv
 
     def calcularSueldo (self):
-        importe = self.getSueldoBasico() + (self.getSueldoBasico() + (self.getSueldoBasico() * (self.getAntig() / 100)))
+        importe = self.getSueldoBasico() + (self.getSueldoBasico() * (self.getAntig() / 100))
         return importe
 
     def mostrarDatos (self):
@@ -21,6 +21,8 @@ class Investigador (Personal):
         print("----Datos del Investigador----\n") 
         print("Area de Investigacion: {}\nTipo de INvestigacion: {}\nSueldo: {:.2f}".format(self.__areaInv, self.__tipoInv, self.calcularSueldo()))
         
+    def getTipoP (self):                        #metodo para opcion 6
+        return 'Investigador'
 
     def toJSON (self):
         d = dict (

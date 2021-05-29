@@ -19,7 +19,7 @@ class Docente (Personal):
         return self.__catedra
     
     def calcularSueldo (self):
-        importe = self.getSueldoBasico() + (self.getSueldoBasico()+ (self.getSueldoBasico() * (self.getAntig() / 100)))
+        importe = self.getSueldoBasico() + (self.getSueldoBasico() * (self.getAntig() / 100))
         if (self.__cargo == 'simple'):
             importe += (self.getSueldoBasico() * 0.10)
         elif self.__cargo == 'semiexclusivo':
@@ -35,6 +35,9 @@ class Docente (Personal):
         super().mostrarDatos()
         print("----Datos del Docente----\n")
         print("Carrera: {}\nCargo: {}\nCatedra: {}\nSueldo: {:.2f}".format(self.__carrera, self.__cargo, self.__catedra, self.calcularSueldo()))
+
+    def getTipoP (self):                        #metodo para opcion6
+        return 'Docente'
 
     def toJSON (self):
         d = dict (
