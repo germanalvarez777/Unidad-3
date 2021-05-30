@@ -44,7 +44,7 @@ if __name__ == '__main__':
         print("""
         =======================================================
         1 - Cargar los datos de los talleres.
-        2 - Inscribir una persona en un taller.
+        2 - Inscribir una/s persona/s en un taller.
         3 - Consultar inscripcion.
         4 - Consultar inscriptos.
         5 - Registrar pago.

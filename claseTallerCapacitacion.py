@@ -10,7 +10,7 @@ class TallerCapacitacion:
     __inscripciones = []
     def __init__ (self, id=0, nom='', vac=0, monto=0):
         self.__idTaller = id
-        self.__nombre = nom
+        self.__nombre = nom                     #ahi me fijo,  cualuier cosa le consulto
         self.__vacantes = vac
         self.__montoInscripcion = monto
     def getIdTaller (self):
@@ -48,12 +48,15 @@ class TallerCapacitacion:
         band = False
         while ((i < len(self.__inscripciones)) and (band == False)):
             persona = self.__inscripciones[i].getPersonaIns()
-            if ((doc == persona.getDni()) and (self.__inscripciones[i].getTallerIns() == nombreT)):
+            if ((doc == persona.getDni()) and (self.__inscripciones[i].getTallerIns() == nombreT)):     
                 band = True    
             i += 1
         if band == True:    
-            print("Persona: {}, inscripta en taller: {}\nMonto que adeuda: {}".format(persona.getNombre(),nombreT, montoT))
-        return band
+            if (self.__inscripciones[i-1].getPago() == False):
+                print("Persona: {}, inscripta en taller: {}\nMonto que adeuda: {}".format(persona.getNombre(),nombreT, montoT))
+            else:
+                print("Persona: {}, inscripta en el taller:{}\nNO adeuda un monto, pues ya lo pago!".format(persona.getNombre(),nombreT))
+        return band                 #puedo hacer una condicion antes de entrar a este metodo, por el pago?
 
     #apartado 4
     def inscriptosTaller (self, idtaller):

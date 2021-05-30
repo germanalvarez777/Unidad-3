@@ -24,7 +24,7 @@ class Inscripcion:
         return self.__persona.getDni()
 
     def setPago(self, valor):
-        self.__pago = valor
+        self.__pago = valor             #valor puede ser true o false
 
     def getTallerIns (self):
         return self.__taller.getNombreTaller()

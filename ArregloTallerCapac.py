@@ -73,17 +73,20 @@ class ArrayTC:
     
     #apartado 3
     def consultarIns (self):
-        bandera = False
+        bandera = False         
         i = 0
         dni = (input("Ingrese el DNI de una persona: "))
         
         while ((i < self.__cantidad) and (bandera == False)):
             nombre = self.__talleres[i].getNombreTaller()
             monto = self.__talleres[i].getMontoIns()
+
             bandera = self.__talleres[i].buscarPersona (dni, nombre, monto)
             i += 1
+            
 
     #apartado4
+
     def consultarInscriptos (self):
         print("\nLos talleres disponibles son:")
         for i in range(self.__cantidad):
