@@ -10,8 +10,11 @@ def test ():
 if __name__ == '__main__':
     menu = MenuLibros ()
     band = True
-    test()
-    input("Ha finalizado el testeo de datos, presione una tecla para continuar\n")
+    ejc = input("Desea realizar el testeo de datos?(s/n): ")
+    if ejc ==  's':
+        test()
+        input("Ha finalizado el testeo de datos, presione una tecla para continuar\n")
+    
     while band:
         print("""
         =======================================================================
