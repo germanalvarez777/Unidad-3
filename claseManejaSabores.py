@@ -37,8 +37,10 @@ class ManejaSabores:
             if (self.__listaSabores[i].getNombre() == nombre):
                 band = True
             i += 1        
-        
-        return self.__listaSabores[i-1]
+        if band:
+            return self.__listaSabores[i-1]
+        else:
+            return None
 
     def buscarNombreSabor (self, nro):
         i = 0

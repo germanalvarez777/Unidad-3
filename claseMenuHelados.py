@@ -59,9 +59,12 @@ class MenuHelados:
         #print("Lista Pe Ordenada: ", lista_pe)
         #print("Lista Nros Ordenada: ", lista_nros)
         print("Mostramos los 5 sabores de Helados mas Pedidos\n")
-        for k in range(5):
-            print("Nombre Sabor: {} - Pedidos: {}".format(self.__manejadorS.buscarNombreSabor(lista_nros[k]), lista_pe[k]))
-
+        if len(self.__manejadorS.getLista()) > 5:
+            for k in range(5):
+                print("Nombre Sabor: {} - Pedidos: {}".format(self.__manejadorS.buscarNombreSabor(lista_nros[k]), lista_pe[k]))
+        else:
+            for k in range(len(self.__manejadorS.getLista())):
+                print("Nombre Sabor: {} - Pedidos: {}".format(self.__manejadorS.buscarNombreSabor(lista_nros[k]), lista_pe[k]))
 
 
     def opcion3 (self):

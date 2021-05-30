@@ -2,7 +2,31 @@ from claseManejaSabores import ManejaSabores
 from claseManejaHelados import ManejaHelados
 from claseMenuHelados import MenuHelados
 import os
+
+def testPrueba ():
+    ms = ManejaSabores()
+    ms.testListaSabores()
+    mh = ManejaHelados()
+    s = True
+    while s:
+        carg = input("Desea cargar una instancia?(s/n): ")
+        if carg.lower() == 's':
+            mh.unaInstanciaH(ms)
+        elif carg.lower() == 'n':
+            s = False
+        else:
+            print("Selecciono una opcion incorrecta\n")
+            s = False
+
+    mh.mostrarHelados()
+
 if __name__ == '__main__':
+    
+    ejec = input("Desea ejecutar el test de prueba?(s/n): ")
+    if ejec.lower() == 's':
+        testPrueba()
+        input("El testeo de datos ha finalizado, presione una tecla: ")
+
     salir = True
     menu = MenuHelados()
     while salir:
