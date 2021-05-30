@@ -74,7 +74,7 @@ class ListaPersonalUniv:
         cont = 0
         ant = aux
         
-        if (pos <= self.__tope):
+        if ((pos <= self.__tope) and (pos >= 0)):
             
             if cont == pos:                                                           #insertamos el elemento en la primera pos                
                 if self.__comienzo == None:                                         #lista vacia
@@ -91,7 +91,7 @@ class ListaPersonalUniv:
                     aux.setSiguiente (aux.getSiguiente())                         
 
                     self.__comienzo = nodo
-
+                    self.__actual = nodo
                     self.__tope += 1
                     
             else:
