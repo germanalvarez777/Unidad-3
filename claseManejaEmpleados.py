@@ -181,9 +181,6 @@ class ManejaEmpleados:
             if isinstance (self.__empleados[i], Externo):
                 if (self.__empleados[i].getTarea() == nomtarea.lower()):
                     
-                    #print("1-fecha actual: ", fechaActual.mostrarFecha(), "fechafin: ", self.__empleados[i].getFechaFinExt().mostrarFecha())
-                    #print("Valor de la comp: ", self.__empleados[i].getFechaFinExt() > fechaActual)
-                    
                     if (self.__empleados[i].getFechaFinExt() > fechaActual):         #tarea no finalizada
                         acum += self.__empleados[i].getSueldo()
         if (acum > 0):
@@ -259,7 +256,7 @@ class ManejaEmpleados:
             print("El DNI de la persona ingresa no es correcto para esta operacion!")
 
     def mostrarDNIempleados (self):
-        print("Los DNI de empleados son: ")
+        print("Los DNI de los empleados son: ")
         for i in range (self.__cantidad):
             print("-------------------------------------------------------------------")
             print("DNI: {} - Tipo de Empleado: {}".format(self.__empleados[i].getDniEmp(), self.__empleados[i].getTipo()))
