@@ -28,7 +28,6 @@ class MenuVehiculo:
             '8':self.salir
         }
         self.__jsonFile = ObjectEncoder()
-        #IElemento(self.__lista)                                        #es necesario restringir la interfaz en este ejercicio?
         marca = input("Ingrese la marca de los vehiculos nuevos: ")
         VehiculoNuevo.setMarca (marca)
 
@@ -69,28 +68,34 @@ class MenuVehiculo:
 
     def opcion1 (self, lista):
         print("Ejecutamos la Opcion 1\nInsertar un vehículo en la colección en una posición determinada\n")
+        
         posicion = int(input("Ingrese una posicion determinada a insertar: "))
         carga = input("Desea cargar vehiculo o no(s/n): ")
         if (carga.lower() == 's'):
             unVehic = self.crearVehiculo ()
+            lista.insertarElemento (posicion, unVehic)
         else:
             op = int(input("Ingrese auto1 o auto2: "))
             if op == 1:
                 unVehic = VehiculoUsado ('Suran', 4, 'Rojo', 695429.3, 'VW', 'ODI-932', 2019, 3932.3)
+                lista.insertarElemento (posicion, unVehic)
             elif op == 2:
                 unVehic = VehiculoNuevo ('Focus 2', 4, 'Gris', 736382.3, 'Base')
+                lista.insertarElemento (posicion, unVehic)
 
-        lista.insertarElemento (posicion, unVehic)
+        
 
     def opcion2 (self, lista):
         print("Ejecutamos la Opcion 2 - Agregar un vehículo a la colección\n")
         carga = input("Desea cargar vehiculo o no(s/n): ")
         if (carga.lower() == 's'):
             unVehic = self.crearVehiculo ()
+            lista.agregarElemento (unVehic)
         else:
             unVehic = VehiculoNuevo ('Focus', 2, 'Azul marino', 485832.3, 'Full')
+            lista.agregarElemento (unVehic)
         
-        lista.agregarElemento (unVehic)
+        
 
     def opcion3 (self, lista):
         print("Ejecutmaos la Opcion 3 - Mostrar un vehiculo por su posicion\n")

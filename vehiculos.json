@@ -4,6 +4,19 @@
         {
             "__class__": "VehiculoUsado",
             "__atributos__": {
+                "modelo": "Suran",
+                "cantPuertas": 4,
+                "color": "Rojo",
+                "precioBaseV": 695429.3,
+                "marca": "VW",
+                "patente": "ODI-932",
+                "anio": 2019,
+                "kilometraje": 3932.3
+            }
+        },
+        {
+            "__class__": "VehiculoUsado",
+            "__atributos__": {
                 "modelo": "A9",
                 "cantPuertas": 2,
                 "color": "Amarillo",
@@ -88,6 +101,16 @@
                 "color": "Rosado",
                 "precioBaseV": 937342.2,
                 "version": "peugeot"
+            }
+        },
+        {
+            "__class__": "VehiculoNuevo",
+            "__atributos__": {
+                "modelo": "Focus",
+                "cantPuertas": 2,
+                "color": "Azul marino",
+                "precioBaseV": 485832.3,
+                "version": "full"
             }
         }
     ]

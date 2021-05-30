@@ -19,8 +19,10 @@ class VehiculoNuevo (Vehiculo):
 
     def getImporteVenta (self):               #metodo abstracto, hay que implementarlo para no ser subclase abstracta
         suma = self.getPrecioBase() + (self.getPrecioBase() * 0.10)
+        #print(suma)
         if (self.__version == 'full'):
             suma += self.getPrecioBase() * 0.02
+
         return suma
 
     def mostrarVehiculo (self):

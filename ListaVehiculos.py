@@ -55,7 +55,7 @@ class ListaVehiculos:
         cont = 0
         ant = aux
         
-        if (pos <= self.__tope):
+        if ((pos <= self.__tope) and (pos >= 0)):
             
             if cont == pos:                                                           #insertamos el elemento en la primera pos                
                 if self.__comienzo == None:                                         #lista vacia
@@ -72,7 +72,7 @@ class ListaVehiculos:
                     aux.setSiguiente (aux.getSiguiente())                         
 
                     self.__comienzo = nodo
-
+                    self.__actual = nodo
                     self.__tope += 1
                     
             else:
@@ -95,21 +95,18 @@ class ListaVehiculos:
                     
         else:
             raise Exception("Posicion de la coleccion no es correcta\n")
-            #insertamos al final dicho nodo con posicion incorrecta
-            #self.agregarElemento (unVehic)
-
+            
     def __next__ (self):                    #recorre en el iterador el sig elemento
         if (self.__indice == self.__tope):
             self.__actual = self.__comienzo
             self.__indice = 0
             raise StopIteration
         else:
-            if self.__actual == None:
-                raise IndexError
-            else:
+            if self.__indice < self.__tope and self.__actual != None:
                 self.__indice += 1
                 dato = self.__actual.getDato()
                 self.__actual = self.__actual.getSiguiente()
+            
                 return dato
     
     def mostrarElemento (self, pos):
@@ -119,7 +116,7 @@ class ListaVehiculos:
              
         if ((pos < self.__tope) and (pos != None)):                 
             while ((aux != None) and (band == False)):
-                #print("Cont: {}, pos: {}, band: {}, y auto: {}".format(cont, pos, band, aux.getDato().obtenerVehiculo()))
+                print("Cont: {}, pos: {}, band: {}, y auto: {}".format(cont, pos, band, aux.getDato().obtenerVehiculo()))
                 if cont == pos:
                     band = True
                 else:
@@ -191,7 +188,7 @@ class ListaVehiculos:
         
         print("Mostramos el vehiculo mas Economico\n")
         print(auto.mostrarVehiculo())
-        #return auto
+        
 
     def mostrarVehiculos (self):
         i = 0

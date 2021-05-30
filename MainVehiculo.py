@@ -10,15 +10,30 @@ from zope.interface import implementer
 from claseIElemento import IElemento
 from MenuVehiculo import MenuVehiculo
 from ObjectEncoder import ObjectEncoder
-#@implementer (IElemento)
+@implementer (IElemento)
+
+def testPrueba ():
+    marca = input("Ingrese la marca de los vehiculos nuevos: ")
+    VehiculoNuevo.setMarca (marca)
+    lista_test = ListaVehiculos()
+    unVehic = VehiculoUsado ('Suran', 4, 'Rojo', 695429.3, 'VW', 'ODI-932', 2019, 3932.3)
+    lista_test.agregarElemento(unVehic)
+    otroVehic = VehiculoNuevo ('Focus', 2, 'Azul marino', 485832.3, 'Full')
+    lista_test.insertarElemento(0, otroVehic)
+    otroveh2 = VehiculoNuevo ('Focus 2', 4, 'Gris', 736382.3, 'Base')
+    lista_test.insertarElemento(1,otroveh2)
+    for dato in lista_test:
+        print("=".center(40, '='))
+        print(dato.mostrarVehiculo())
 
 def cargarLista ():
     try:                            #archivo json ya cargado
         archivoJSON = ObjectEncoder()
         diccionario = archivoJSON.leerArchJSON('vehiculos.json')
-        print("Dic: ", diccionario)
+        #print("Dic: ", diccionario)
         listaAutos = archivoJSON.decodificarDicc (diccionario)
-        print("Lista es: ", listaAutos)
+        #print("Lista es: ", listaAutos)
+        print("Coleccion de vehiculos NO vacia\n")
         return listaAutos
 
     except:                         #archivo json no cargado 
@@ -29,6 +44,8 @@ def cargarLista ():
 
 if __name__ == '__main__':
     
+    testPrueba()
+    input("\nHa finalizado la prueba de datos, presione una tecla para continuar: \n")
     salir = True
     menu = MenuVehiculo ()
     lista = cargarLista()
