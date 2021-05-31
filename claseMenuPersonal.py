@@ -85,7 +85,7 @@ class MenuPersonal:
             op = int(input("Ingrese 1 o 2: "))
             unAgente = None
             if op == 1:
-                unAgente = Docente ('Roberto', 'Sanchez', '23-20194573-7', 38345.3, 3, 'LSI', 'simple', 'Procedural')
+                unAgente = Docente ('Jaime', 'Sanchez', '23-2291201-5', 38345.3, 3, 'LSI', 'simple', 'Procedural')
             elif op == 2:
                 #unAgente = Investigador ('Antonio', 'Cassano', '18-38329232-8', 30001.3, 5, 'Tecno', 'OS')
                 unAgente = Investigador('Rodrigo', 'Perez', '25-3756232-3', 30001.3, 5, 'Tecno', 'OS')

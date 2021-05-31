@@ -37,13 +37,7 @@ class ListaPersonalUniv:
                 self.__actual = self.__actual.getSiguiente()
                 return dato
     
-    def getTope (self):
-        return self.__tope
-    
-    def getComienzo (self):
-        return self.__comienzo
-    
-
+   
     def agregarElemento (self, unPersonal):                        #agregamos nuevo elemento al final de la lista 
         aux = self.__comienzo
         ant = aux
@@ -146,14 +140,15 @@ class ListaPersonalUniv:
     #metodos de opcion 4
     def mostrarCarreras (self):
         aux = self.__comienzo
-        i = 0
+        #i = 0
         print("Mostramos las carreras en las que se dicta clases: \n")
-        while ((aux != None) and (i < self.__tope)):
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             if isinstance (aux.getDato(), DocInvestig):
                 print("Carrera: {}".format(aux.getDato().getCarreraDoc()))
             elif isinstance (aux.getDato(), Docente):                       #elif para que no se repitan las carreras
                 print("Carrera: {}".format(aux.getDato().getCarreraDoc()))
-            i += 1
+            #i += 1
             aux = aux.getSiguiente()
 
     def validarRepetido (self, unPersonal):
@@ -166,10 +161,10 @@ class ListaPersonalUniv:
             aux = aux.getSiguiente()
         
         if cont > 1:
-            band = True
+            band = True                 #dicha persona se repite mas de una vez
         else:
             band = False
-        
+
         return band
 
     def generarListadoDI (self, carrera):
@@ -205,30 +200,32 @@ class ListaPersonalUniv:
     #metodos de opcion 5
     def mostrarAreasInv (self):
         aux = self.__comienzo
-        i = 0
+        #i = 0
         print("Mostramos las areas de investigacion disponibles: \n")
-        while ((aux != None) and (i < self.__tope)):
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             if isinstance (aux.getDato(), DocInvestig):
                 print("Area de Investigacion: {}".format(aux.getDato().getAreaInv()))
             elif isinstance (aux.getDato(), Investigador):                              #elif para que no se repitan las areas
                 print("Area de Investigacion: {}".format(aux.getDato().getAreaInv()))
             aux = aux.getSiguiente()
-            i += 1
+            #i += 1
 
     def contarDoc_Inv (self, area):
         aux = self.__comienzo
-        i = 0
+        #i = 0
         contarDI = 0
         contarI = 0
-        while ((aux != None) and (i < self.__tope)):
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             if isinstance (aux.getDato(), DocInvestig):
                 if (aux.getDato().getAreaInv() == area):
                     contarDI += 1
             
-            if (type(aux.getDato()) == Investigador):                   #para no contar la subclase Docente-Invest
+            if (type(aux.getDato()) == Investigador):                   #TYPE, para no contar la subclase Docente-Invest
                 if (aux.getDato().getAreaInv() == area):
                     contarI += 1
-            i += 1
+            #i += 1
             aux = aux.getSiguiente()
         
         print("Cantidad de Docentes-Inv: {}\nCantidad de Investigadores: {}".format(contarDI, contarI))
@@ -262,30 +259,32 @@ class ListaPersonalUniv:
                 if unic == False:
                     print("{:8}      {:8}     {:.2f}\n".format(dato.getNomApell(), dato.getTipoP(), dato.calcularSueldo()))
                     unic = True             #como ya se mostro el personal repetido, cambiamos el valor para no volver a mostrarlo
-
+    
 
     #metodos para opcion 7
     def mostrarCatInv (self):
         aux = self.__comienzo
-        i = 0
+        #i = 0
         print("Mostramos las categorias de investigacion disponibles: \n")
-        while ((aux != None) and (i < self.__tope)):
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             if isinstance (aux.getDato(), DocInvestig):
                 print("Categoria de Investigacion: {}".format(aux.getDato().getCategInvest()))
             aux = aux.getSiguiente()
-            i += 1
+            #i += 1
     
     def calcularTotalExtra (self, cat):
         aux = self.__comienzo
-        i = 0
+        #i = 0
         acum = 0
         print("Apellido     Nombre      Importe Extra\n")
-        while ((aux != None) and (i < self.__tope)):
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             if isinstance (aux.getDato(), DocInvestig):
                 if (aux.getDato().getCategInvest() == cat):
                     print("{:8}   {:8}   {:8}".format(aux.getDato().getApellido(), aux.getDato().getNombre(), aux.getDato().getImporteExtra()))
                     acum += aux.getDato().getImporteExtra()
-            i += 1
+            #i += 1
             aux = aux.getSiguiente()
         
         print("\nTotal de Importe Extra a cobrar por la categoria solicitada: {:.2f}".format(acum))

@@ -35,10 +35,6 @@ class Personal (ABC):
         print("----Datos del Personal Universitario----\n")
         print("Nombre: {}\nCUIL: {}\nSueldo Basico: {:.2f} - Antiguedad: {} años".format(self.getNomApell(), self.__cuil, self.__sueldoBasico, self.__antig))
     
-    #metodo para ordenar por nombre, apartado 4
-    def __gt__ (self, otroP):
-        if (type(self) == type(otroP)):
-            return self.__nombre > otroP.getNombre()
 
     @abc.abstractmethod
     def calcularSueldo (self):

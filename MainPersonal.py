@@ -31,7 +31,7 @@ def cargarLista():
         dicc = jsonArchivo.leerArchivoJSON ('personal.json')
         lista = jsonArchivo.decodificarDicc (dicc)
         print("Lista NO vacia cargada\n")
-        print(lista)
+        #print(lista)
         return lista
     except:                
         lista = ListaPersonalUniv()
