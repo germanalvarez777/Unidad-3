@@ -1,7 +1,7 @@
 from claseVehiculo import Vehiculo
 from claseVehiculoNuevo import VehiculoNuevo
 from claseVehiculoUsado import VehiculoUsado
-import json
+
 class Nodo:
     __vehiculo = None
     __siguiente = None

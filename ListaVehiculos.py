@@ -149,13 +149,14 @@ class ListaVehiculos:
     #metodos para opcion4
     def mostrarPatentesUsad (self):
         aux = self.__comienzo
-        i = 0
-        while ((aux != None) and (i < self.__tope)):
+        #i = 0
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             vehic = aux.getDato()
             if isinstance (vehic, VehiculoUsado):                       #tiene que ser de tipo usado
                 print("Patente: {}".format(vehic.getPatente()))
             aux = aux.getSiguiente()
-            i += 1
+            #i += 1
 
     def modificarPrecioBase (self, pat):
         aux = self.__comienzo
@@ -177,24 +178,26 @@ class ListaVehiculos:
     def autoEconomico (self):
         aux = self.__comienzo
         min = 100000000                 #le asignamos un valor alto
-        i = 0
-        while ((aux != None) and (i < self.__tope)):
+        #i = 0
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             vehic = aux.getDato()
             if min > vehic.getImporteVenta():
                 min = vehic.getImporteVenta()
                 auto = vehic
             aux = aux.getSiguiente()
-            i += 1
+            #i += 1
         
         print("Mostramos el vehiculo mas Economico\n")
         print(auto.mostrarVehiculo())
         
 
     def mostrarVehiculos (self):
-        i = 0
+        #i = 0
         aux = self.__comienzo
-        while ((aux != None) and (i < self.__tope)):
+        #while ((aux != None) and (i < self.__tope)):
+        while aux != None:
             print("=".center(40,'='))
             print(aux.getDato().mostrarVehiculo())
-            i += 1
+            #i += 1
             aux = aux.getSiguiente()
