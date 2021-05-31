@@ -70,6 +70,7 @@ if __name__ == '__main__':
     prueba = input("Desea realizar el testeo de datos?(s/n): ")
     if (prueba.lower() == 's'):
         test ()
+        input("El testeo de datos ha finalizado, presione una tecla..")
     
     tamañoTeclado = int(input("Ingrese el tamaño del arreglo: "))
     menu = MenuEmpleado(tamañoTeclado)

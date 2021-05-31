@@ -223,7 +223,7 @@ class ManejaEmpleados:
         if band == True:
             print("El nuevo sueldo basico de {}, es {:.2f}\n".format(self.__empleados[i-1].getNomEmp(), self.__empleados[i-1].getSueldoBasic()))
         else:
-            print("El DNI de la persona ingresa no es correcto para esta operacion!")
+            print("El DNI de la persona ingresada no es correcto para esta operacion!")
 
     def modificarViaticoEExterno(self, dni, nuevoViatico):
         i = 0
@@ -237,7 +237,7 @@ class ManejaEmpleados:
         if band == True:
             print("Nuevo viatico de {} es {:.2f}\n".format(self.__empleados[i-1].getNomEmp(), self.__empleados[i-1].getViatico()))
         else:
-            print("El DNI de la persona ingresa no es correcto para esta operacion!")
+            print("El DNI de la persona ingresada no es correcto para esta operacion!")
 
     def modificarValorEPorHora(self, dni, nuevoValorHora): 
         i = 0
@@ -253,7 +253,7 @@ class ManejaEmpleados:
             print("El DNI encontrado es de la persona: {}".format(self.__empleados[i-1].getNomEmp()))
             print("Nuevo valor de hora para los Empleados Contratados es: {}\n".format(Contratado.getValorXhora()))
         else:
-            print("El DNI de la persona ingresa no es correcto para esta operacion!")
+            print("El DNI de la persona ingresada no es correcto para esta operacion!")
 
     def mostrarDNIempleados (self):
         print("Los DNI de los empleados son: ")
